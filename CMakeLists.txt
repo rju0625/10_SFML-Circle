@@ -1,17 +1,16 @@
-cmake_minimum_required(VERSION 3.28)
-project(CMakeSFMLProject LANGUAGES CXX)
+cmake_minimum_required(VERSION 3.10)
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+project(SFML_Circle)
 
-include(FetchContent)
-FetchContent_Declare(SFML
-    GIT_REPOSITORY https://github.com/SFML/SFML.git
-    GIT_TAG 3.0.0
-    GIT_SHALLOW ON
-    EXCLUDE_FROM_ALL
-    SYSTEM)
-FetchContent_MakeAvailable(SFML)
+set(CMAKE_CXX_STANDARD 20)
 
-add_executable(main src/main.cpp)
-target_compile_features(main PRIVATE cxx_std_17)
-target_link_libraries(main PRIVATE SFML::Graphics)
+find_package(SFML 3.0 REQUIRED COMPONENTS Window Graphics)
+
+add_executable(SFML_Circle src/main.cpp)
+
+# Use SFML::Window and SFML::Graphics
+target_link_libraries(SFML_Circle
+    PRIVATE
+        SFML::Window
+        SFML::Graphics
+)
