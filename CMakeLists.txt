@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(SFML_Circle)
+project(10_SFML_Circle)
 
 set(CMAKE_CXX_STANDARD 20)
 
